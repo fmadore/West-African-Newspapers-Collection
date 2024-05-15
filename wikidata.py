@@ -3,9 +3,10 @@ import pandas as pd
 
 # Define the SPARQL query to fetch the required data
 query = """
-SELECT ?item ?itemLabel ?inception ?title ?website ?lccn ?oclc ?zdb ?bnf WHERE {
+SELECT ?item ?itemLabel ?inception ?title ?website ?lccn ?oclc ?zdb ?bnf ?countryLabel WHERE {
   ?item wdt:P31 wd:Q11032;
-        wdt:P495 wd:Q1008.
+        wdt:P495 ?country.
+  FILTER (?country IN (wd:Q945, wd:Q962, wd:Q1008, wd:Q117))
   OPTIONAL { ?item wdt:P571 ?inception. }
   OPTIONAL { ?item wdt:P1476 ?title. }
   OPTIONAL { ?item wdt:P856 ?website. }
@@ -25,8 +26,8 @@ def execute_sparql_query(query):
         'User-Agent': 'Wikidata Python Client/1.0 (https://www.wikidata.org/wiki/User:YourUsername)'
     }
     response = requests.get(url, params={'query': query, 'format': 'json'}, headers=headers)
-    data = response.json()
-    return data
+    response.raise_for_status()
+    return response.json()
 
 
 # Fetch the data
@@ -76,9 +77,12 @@ for result in results:
     if bnf:
         bnf = f"https://catalogue.bnf.fr/ark:/12148/cb{bnf}"
 
+    country = result.get('countryLabel', {}).get('value', '')
+
     parsed_data.append({
         'QID': item,
         'Title': title,
+        'Country': country,
         'Inception': inception,
         'Website': website,
         'LCCN': lccn,
