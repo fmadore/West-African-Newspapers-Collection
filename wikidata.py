@@ -80,10 +80,10 @@ for result in results:
     country = result.get('countryLabel', {}).get('value', '')
 
     parsed_data.append({
-        'QID': item,
         'Title': title,
         'Country': country,
         'Inception': inception,
+        'QID': item,
         'Website': website,
         'LCCN': lccn,
         'OCLC': oclc,
