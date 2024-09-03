@@ -258,10 +258,10 @@ app_ui = ui.page_sidebar(
         ui.input_select("filter_country", "Filter by Country", choices=["All"] + list(data['Country'].unique())),
     ),
     ui.h1("WANA Partners Dashboard"),
+    ui.h2("Partners by Type and Country"),
+    output_widget("type_chart"),
     ui.h2("Partner Distribution"),
     output_widget("map"),
-    ui.h2("Partners by Type"),
-    output_widget("type_chart"),
     ui.h2("Timeline"),
     output_widget("timeline"),
 )
