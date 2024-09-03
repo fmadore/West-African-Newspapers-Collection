@@ -5,7 +5,7 @@
       "City": "Porto-Novo",
       "Type": "Archives",
       "Inception": "1975",
-      "Coordinates": [6.483333, 2.616667]
+      "Coordinates": [6.5118, 2.6061]
     },
     {
       "Institute or newspaper name": "Le Héraut",
@@ -14,7 +14,7 @@
       "Type": "Newspaper",
       "Inception": "1988",
       "Closure date": null,
-      "Coordinates": [6.448611, 2.355556]
+      "Coordinates": [6.412947, 2.342869]
     },
     {
       "Institute or newspaper name": "National Archives of Benin",
@@ -22,7 +22,7 @@
       "City": "Porto-Novo",
       "Type": "Archives",
       "Inception": "1914",
-      "Coordinates": [6.483333, 2.616667]
+      "Coordinates": [6.511933, 2.606324]
     },
     {
       "Institute or newspaper name": "Fraternité",
@@ -31,7 +31,7 @@
       "Type": "Newspaper",
       "Inception": "1999",
       "Closure date": null,
-      "Coordinates": [6.366667, 2.416667]
+      "Coordinates": [6.388017, 2.367524]
     },
     {
       "Institute or newspaper name": "Matin Libre",
@@ -40,7 +40,7 @@
       "Type": "Newspaper",
       "Inception": "2014",
       "Closure date": null,
-      "Coordinates": [6.366667, 2.416667]
+      "Coordinates": [6.3711, 2.422464]
     },
     {
       "Institute or newspaper name": "La Croix du Bénin",
@@ -49,7 +49,7 @@
       "Type": "Newspaper",
       "Inception": "1946",
       "Closure date": null,
-      "Coordinates": [6.366667, 2.416667]
+      "Coordinates": [6.367897, 2.427973]
     },
     {
       "Institute or newspaper name": "Le Matinal",
@@ -58,7 +58,7 @@
       "Type": "Newspaper",
       "Inception": "1997",
       "Closure date": null,
-      "Coordinates": [6.366667, 2.416667]
+      "Coordinates": [6.370149, 2.48385]
     },
     {
       "Institute or newspaper name": "Civic Academy for Africa's Future",
@@ -66,7 +66,7 @@
       "City": "Abomey-Calavi",
       "Type": "Education",
       "Inception": "2019",
-      "Coordinates": [6.448611, 2.355556]
+      "Coordinates": [6.41677, 2.325773]
     },
     {
       "Institute or newspaper name": "La Nation",
@@ -75,7 +75,7 @@
       "Type": "Newspaper",
       "Inception": "1990",
       "Closure date": null,
-      "Coordinates": [6.366667, 2.416667]
+      "Coordinates": [6.357045, 2.401843]
     },
     {
         "Institute or newspaper name": "Ehuzu",
@@ -84,7 +84,7 @@
         "Type": "Newspaper",
         "Inception": "1975",
         "Closure date": "1990",
-        "Coordinates": [6.366667, 2.416667]
+        "Coordinates": [6.357045, 2.401843]
       },
       {
         "Institute or newspaper name": "Daho-Express",
@@ -93,7 +93,7 @@
         "Type": "Newspaper",
         "Inception": "1969",
         "Closure date": "1975",
-        "Coordinates": [6.366667, 2.416667]
+        "Coordinates": [6.357045, 2.401843]
       },
     {
       "Institute or newspaper name": "LASDEL Parakou",
@@ -101,15 +101,15 @@
       "City": "Parakou",
       "Type": "Education",
       "Inception": null,
-      "Coordinates": [9.316667, 2.083333]
+      "Coordinates": [9.341821, 2.592845]
     },
     {
-      "Institute or newspaper name": "Agence Nationale de la Presse de Côte d'Ivoire",
+      "Institute or newspaper name": "Autorité Nationale de la Presse",
       "Country": "Côte d'Ivoire",
       "City": "Abidjan",
       "Type": "Organisation",
       "Inception": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.391243, -3.986900]
     },
     {
       "Institute or newspaper name": "Archives Nationales de Côte d'Ivoire",
@@ -117,24 +117,24 @@
       "City": "Abidjan",
       "Type": "Archives",
       "Inception": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.320437, -4.021263]
     },
     {
       "Institute or newspaper name": "Le Temps",
       "Country": "Côte d'Ivoire",
       "City": "Abidjan",
       "Type": "Newspaper",
-      "Inception": null,
+      "Inception": "2003",
       "Closure date": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.356952, -3.977041]
     },
     {
       "Institute or newspaper name": "Centre de Recherche et d'Action pour la Paix",
       "Country": "Côte d'Ivoire",
       "City": "Abidjan",
       "Type": "Library",
-      "Inception": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Inception": "1962",
+      "Coordinates": [5.33969, -4.0006]
     },
     {
       "Institute or newspaper name": "Le Jour Plus",
@@ -143,7 +143,7 @@
       "Type": "Newspaper",
       "Inception": "2003",
       "Closure date": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.376238, -3.996232]
     },
     {
         "Institute or newspaper name": "Le Jour",
@@ -152,7 +152,7 @@
         "Type": "Newspaper",
         "Inception": "1994",
         "Closure date": "2003",
-        "Coordinates": [5.336389, -4.026667]
+        "Coordinates": [5.376238, -3.996232]
       },
     {
       "Institute or newspaper name": "Le Patriote",
@@ -161,7 +161,7 @@
       "Type": "Newspaper",
       "Inception": "1991",
       "Closure date": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.279551, -3.978055]
     },
     {
       "Institute or newspaper name": "L'inter",
@@ -170,16 +170,16 @@
       "Type": "Newspaper",
       "Inception": "1998",
       "Closure date": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.298293, -3.982263]
     },
     {
       "Institute or newspaper name": "Soir Info",
       "Country": "Côte d'Ivoire",
       "City": "Abidjan",
       "Type": "Newspaper",
-      "Inception": null,
+      "Inception": "1994",
       "Closure date": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.298293, -3.982263]
     },
     {
       "Institute or newspaper name": "Notre Voie",
@@ -188,7 +188,7 @@
       "Type": "Newspaper",
       "Inception": "1997",
       "Closure date": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.362541, -3.959885]
     },
     {
         "Institute or newspaper name": "La Voie",
@@ -197,7 +197,7 @@
         "Type": "Newspaper",
         "Inception": "1991",
         "Closure date": "1997",
-        "Coordinates": [5.336389, -4.026667]
+        "Coordinates": [5.362541, -3.959885]
       },
       {
         "Institute or newspaper name": "Le Nouvel Horizon",
@@ -206,7 +206,7 @@
         "Type": "Newspaper",
         "Inception": "1990",
         "Closure date": null,
-        "Coordinates": [5.336389, -4.026667]
+        "Coordinates": [5.362541, -3.959885]
       },
     {
       "Institute or newspaper name": "Fraternité Matin",
@@ -215,7 +215,7 @@
       "Type": "Newspaper",
       "Inception": "1964",
       "Closure date": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.344436, -4.018549]
     },
     {
         "Institute or newspaper name": "Fraternité Hebdo",
@@ -224,7 +224,7 @@
         "Type": "Newspaper",
         "Inception": "1969",
         "Closure date": null,
-        "Coordinates": [5.336389, -4.026667]
+        "Coordinates": [5.344436, -4.018549]
       },
       {
         "Institute or newspaper name": "Ivoire Dimanche",
@@ -233,7 +233,7 @@
         "Type": "Newspaper",
         "Inception": "1971",
         "Closure date": "1990",
-        "Coordinates": [5.336389, -4.026667]
+        "Coordinates": [5.344436, -4.018549]
       },  
     {
       "Institute or newspaper name": "Groupement des Éditeurs de Presse de Côte d'Ivoire",
@@ -241,15 +241,15 @@
       "City": "Abidjan",
       "Type": "Organisation",
       "Inception": null,
-      "Coordinates": [5.336389, -4.026667]
+      "Coordinates": [5.346763, -4.017048]
     },
     {
       "Institute or newspaper name": "Balme Library",
       "Country": "Ghana",
       "City": "Accra",
       "Type": "Library",
-      "Inception": null,
-      "Coordinates": [5.533333, -0.216667]
+      "Inception": "1948",
+      "Coordinates": [5.65197, -0.187028]
     },
     {
       "Institute or newspaper name": "Daily Graphic",
@@ -258,7 +258,7 @@
       "Type": "Newspaper",
       "Inception": "1950",
       "Closure date": null,
-      "Coordinates": [5.533333, -0.216667]
+      "Coordinates": [5.554803, -0.217079]
     },
     {
       "Institute or newspaper name": "The Mirror",
@@ -267,7 +267,7 @@
       "Type": "Newspaper",
       "Inception": "1953",
       "Closure date": null,
-      "Coordinates": [5.533333, -0.216667]
+      "Coordinates": [5.554803, -0.217079]
     },
     {
       "Institute or newspaper name": "The Spectator",
@@ -276,7 +276,7 @@
       "Type": "Newspaper",
       "Inception": "1969",
       "Closure date": null,
-      "Coordinates": [5.533333, -0.216667]
+      "Coordinates": [5.554803, -0.217079]
     },
     {
       "Institute or newspaper name": "Daily Guide",
@@ -285,7 +285,7 @@
       "Type": "Newspaper",
       "Inception": "1984",
       "Closure date": null,
-      "Coordinates": [5.533333, -0.216667]
+      "Coordinates": [5.575921, -0.201627]
     },
     {
       "Institute or newspaper name": "The Ghanaian Times",
@@ -294,7 +294,7 @@
       "Type": "Newspaper",
       "Inception": "1957",
       "Closure date": null,
-      "Coordinates": [5.533333, -0.216667]
+      "Coordinates": [5.569508, -0.221906]
     },
     {
       "Institute or newspaper name": "The Ghanaian Observer",
@@ -303,31 +303,31 @@
       "Type": "Newspaper",
       "Inception": "2006",
       "Closure date": null,
-      "Coordinates": [5.533333, -0.216667]
+      "Coordinates": [5.577693, -0.208109]
     },
     {
       "Institute or newspaper name": "Ghana Library Authority",
       "Country": "Ghana",
       "City": "Accra",
       "Type": "Archives",
-      "Inception": null,
-      "Coordinates": [5.533333, -0.216667]
+      "Inception": "1950",
+      "Coordinates": [5.5447, -0.2058]
     },
     {
       "Institute or newspaper name": "Bibliothèque et Archives nationales du Togo",
       "Country": "Togo",
       "City": "Lomé",
       "Type": "Archives",
-      "Inception": null,
-      "Coordinates": [6.131944, 1.222778]
+      "Inception": "1969",
+      "Coordinates": [6.129117, 1.218427]
     },
     {
       "Institute or newspaper name": "University of Lomé",
       "Country": "Togo",
       "City": "Lomé",
       "Type": "Education",
-      "Inception": null,
-      "Coordinates": [6.131944, 1.222778]
+      "Inception": "1970",
+      "Coordinates": [6.173669, 1.215866]
     },
     {
       "Institute or newspaper name": "L'Alternative",
@@ -345,7 +345,7 @@
       "Type": "Newspaper",
       "Inception": "2005",
       "Closure date": null,
-      "Coordinates": [6.131944, 1.222778]
+      "Coordinates": [6.18998, 1.15607]
     },
     {
       "Institute or newspaper name": "La Dépêche",
@@ -354,6 +354,6 @@
       "Type": "Newspaper",
       "Inception": "1993",
       "Closure date": null,
-      "Coordinates": [6.131944, 1.222778]
+      "Coordinates": [6.158767, 1.212996]
     }
   ]
