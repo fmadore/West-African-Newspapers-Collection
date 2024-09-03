@@ -4,6 +4,8 @@ import plotly.express as px
 from shiny import App, ui, render
 from shinywidgets import output_widget, render_widget
 from pathlib import Path
+import geopandas as gpd
+import cartopy.io.shapereader as shpreader
 
 # Load data from JSON file
 data_path = Path(__file__).parent / "data.json"
@@ -30,6 +32,11 @@ country_color_data = json.dumps(country_counts)
 unique_types = ["All"] + sorted(data['Type'].unique().tolist())
 unique_countries = ["All"] + sorted(data['Country'].unique().tolist())
 unique_cities = ["All"] + sorted(data['City'].unique().tolist())
+
+# Load world map data
+world = gpd.read_file(shpreader.natural_earth(resolution='110m', category='cultural', name='admin_0_countries'))
+world = world.to_crs(epsg=4326)
+world_geojson = json.loads(world.to_json())
 
 app_ui = ui.page_sidebar(
     ui.sidebar(
@@ -91,21 +98,47 @@ def server(input, output, session):
         if input.filter_city() != "All":
             filtered_data = filtered_data[filtered_data['City'] == input.filter_city()]
         
-        fig = px.scatter_mapbox(filtered_data, 
-                                lat="Latitude", 
-                                lon="Longitude", 
-                                hover_name="Institute or newspaper name",
-                                color="Type",
-                                zoom=4,
-                                height=600)
-        
+        # Count partners per country
+        country_counts = filtered_data['Country'].value_counts().reset_index()
+        country_counts.columns = ['Country', 'Count']
+
+        fig = px.choropleth(country_counts, 
+                            geojson=world_geojson, 
+                            locations='Country', 
+                            color='Count',
+                            color_continuous_scale="Viridis",
+                            range_color=(0, country_counts['Count'].max()),
+                            labels={'Count':'Number of Partners'},
+                            hover_name='Country',
+                            hover_data=['Count'],
+                            featureidkey="properties.NAME")
+
+        fig.update_geos(showcountries=True, countrycolor="Black", countrywidth=0.5,
+                        showcoastlines=True, coastlinecolor="Black", coastlinewidth=0.5)
+
         fig.update_layout(
-            mapbox_style="open-street-map",
-            mapbox=dict(
-                center=dict(lat=filtered_data['Latitude'].mean(), lon=filtered_data['Longitude'].mean()),
+            title_text='Partner Distribution by Country',
+            geo=dict(
+                showframe=False,
+                projection_type='natural earth'
             ),
-            margin={"r":0,"t":0,"l":0,"b":0},
-            hoverlabel=dict(bgcolor="white", font_size=12),
+            height=600,
+            margin={"r":0,"t":40,"l":0,"b":0}
+        )
+
+        # Add scatter plot for individual partners
+        scatter_data = px.scatter_geo(filtered_data,
+                                      lat='Latitude',
+                                      lon='Longitude',
+                                      hover_name='Institute or newspaper name',
+                                      hover_data=['Type', 'City'],
+                                      color='Type')
+
+        for trace in scatter_data.data:
+            fig.add_trace(trace)
+
+        # Adjust legend position
+        fig.update_layout(
             legend=dict(
                 yanchor="top",
                 y=0.99,
@@ -114,9 +147,7 @@ def server(input, output, session):
                 bgcolor="rgba(255, 255, 255, 0.5)"
             )
         )
-        
-        fig.update_traces(hovertemplate='%{hovertext}')
-        
+
         return fig
 
     @output
