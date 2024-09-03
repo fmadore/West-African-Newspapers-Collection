@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 from shiny import App, ui, render
 from shinywidgets import output_widget, render_widget
+from pathlib import Path
 
 # Embed data as JSON string
 data_json = '''[
@@ -412,6 +413,3 @@ def server(input, output, session):
         return fig
 
 app = App(app_ui, server)
-
-# Print the JSON data for country colors
-print(country_color_data)
