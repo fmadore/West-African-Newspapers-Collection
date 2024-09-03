@@ -339,6 +339,13 @@ def server(input, output, session):
             ),
             margin={"r":0,"t":0,"l":0,"b":0},
             hoverlabel=dict(bgcolor="white", font_size=12),
+            legend=dict(
+                yanchor="top",
+                y=0.99,
+                xanchor="left",
+                x=0.01,
+                bgcolor="rgba(255, 255, 255, 0.5)"
+            )
         )
         
         fig.update_traces(hovertemplate='%{hovertext}')
