@@ -11,261 +11,295 @@ data_json = '''[
     "Country": "Benin",
     "City": "Porto-Novo",
     "Type": "Archives",
-    "Inception": "1975"
+    "Inception": "1975",
+    "Coordinates": [6.483333, 2.616667]
   },
   {
     "Institute or newspaper name": "Le Héraut",
     "Country": "Benin",
     "City": "Abomey-Calavi",
     "Type": "Newspaper",
-    "Inception": "1988"
+    "Inception": "1988",
+    "Coordinates": [6.448611, 2.355556]
   },
   {
     "Institute or newspaper name": "National Archives of Benin",
     "Country": "Benin",
     "City": "Porto-Novo",
     "Type": "Archives",
-    "Inception": "1914"
+    "Inception": "1914",
+    "Coordinates": [6.483333, 2.616667]
   },
   {
     "Institute or newspaper name": "Fraternité",
     "Country": "Benin",
     "City": "Cotonou",
     "Type": "Newspaper",
-    "Inception": "1999"
+    "Inception": "1999",
+    "Coordinates": [6.366667, 2.416667]
   },
   {
     "Institute or newspaper name": "Matin Libre",
     "Country": "Benin",
     "City": "Cotonou",
     "Type": "Newspaper",
-    "Inception": "2014"
+    "Inception": "2014",
+    "Coordinates": [6.366667, 2.416667]
   },
   {
     "Institute or newspaper name": "La Croix du Bénin",
     "Country": "Benin",
     "City": "Cotonou",
     "Type": "Newspaper",
-    "Inception": "1946"
+    "Inception": "1946",
+    "Coordinates": [6.366667, 2.416667]
   },
   {
     "Institute or newspaper name": "Le Matinal",
     "Country": "Benin",
     "City": "Cotonou",
     "Type": "Newspaper",
-    "Inception": "1997"
+    "Inception": "1997",
+    "Coordinates": [6.366667, 2.416667]
   },
   {
     "Institute or newspaper name": "Civic Academy for Africa's Future",
     "Country": "Benin",
     "City": "Abomey-Calavi",
     "Type": "Education",
-    "Inception": "2019"
+    "Inception": "2019",
+    "Coordinates": [6.448611, 2.355556]
   },
   {
     "Institute or newspaper name": "La Nation/Ehuzu/Daho-Express",
     "Country": "Benin",
     "City": "Cotonou",
     "Type": "Newspaper",
-    "Inception": "1969"
+    "Inception": "1969",
+    "Coordinates": [6.366667, 2.416667]
   },
   {
     "Institute or newspaper name": "LASDEL Parakou",
     "Country": "Benin",
     "City": "Parakou",
     "Type": "Education",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [9.316667, 2.083333]
   },
   {
     "Institute or newspaper name": "Agence Nationale de la Presse de Côte d'Ivoire",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Organisation",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Archives Nationales de Côte d'Ivoire",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Archives",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Le Temps",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Newspaper",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Centre de Recherche et d'Action pour la Paix",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Library",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Le Jour Plus / Le Jour",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Newspaper",
-    "Inception": "1994"
+    "Inception": "1994",
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Le Patriote",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Newspaper",
-    "Inception": "1991"
+    "Inception": "1991",
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "L'inter",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Newspaper",
-    "Inception": "1998"
+    "Inception": "1998",
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Soir Info",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Newspaper",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Notre Voie/La Voie/Le Nouvel Horizon",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Newspaper",
-    "Inception": "1991"
+    "Inception": "1991",
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Fraternité Matin",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Newspaper",
-    "Inception": "1964"
+    "Inception": "1964",
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Groupement des Éditeurs de Presse de Côte d'Ivoire",
     "Country": "Côte d'Ivoire",
     "City": "Abidjan",
     "Type": "Organisation",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.336389, -4.026667]
   },
   {
     "Institute or newspaper name": "Balme Library",
     "Country": "Ghana",
     "City": "Accra",
     "Type": "Library",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.533333, -0.216667]
   },
   {
     "Institute or newspaper name": "Daily Graphic",
     "Country": "Ghana",
     "City": "Accra",
     "Type": "Newspaper",
-    "Inception": "1950"
+    "Inception": "1950",
+    "Coordinates": [5.533333, -0.216667]
   },
   {
     "Institute or newspaper name": "The Mirror",
     "Country": "Ghana",
     "City": "Accra",
     "Type": "Newspaper",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.533333, -0.216667]
   },
   {
     "Institute or newspaper name": "The Spectator",
     "Country": "Ghana",
     "City": "Accra",
     "Type": "Newspaper",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.533333, -0.216667]
   },
   {
     "Institute or newspaper name": "Daily Guide",
     "Country": "Ghana",
     "City": "Accra",
     "Type": "Newspaper",
-    "Inception": "1984"
+    "Inception": "1984",
+    "Coordinates": [5.533333, -0.216667]
   },
   {
     "Institute or newspaper name": "The Ghanaian Times",
     "Country": "Ghana",
     "City": "Accra",
     "Type": "Newspaper",
-    "Inception": "1957"
+    "Inception": "1957",
+    "Coordinates": [5.533333, -0.216667]
   },
   {
     "Institute or newspaper name": "The Ghanaian Observer",
     "Country": "Ghana",
     "City": "Accra",
     "Type": "Newspaper",
-    "Inception": "2006"
+    "Inception": "2006",
+    "Coordinates": [5.533333, -0.216667]
   },
   {
     "Institute or newspaper name": "Ghana Library Authority",
     "Country": "Ghana",
     "City": "Accra",
     "Type": "Archives",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [5.533333, -0.216667]
   },
   {
     "Institute or newspaper name": "Bibliothèque et Archives nationales du Togo",
     "Country": "Togo",
     "City": "Lomé",
     "Type": "Archives",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [6.131944, 1.222778]
   },
   {
     "Institute or newspaper name": "Université de Lomé",
     "Country": "Togo",
     "City": "Lomé",
     "Type": "Education",
-    "Inception": null
+    "Inception": null,
+    "Coordinates": [6.131944, 1.222778]
   },
   {
     "Institute or newspaper name": "L'Alternative",
     "Country": "Togo",
     "City": "Lomé",
     "Type": "Newspaper",
-    "Inception": "2008"
+    "Inception": "2008",
+    "Coordinates": [6.131944, 1.222778]
   },
   {
     "Institute or newspaper name": "Liberté",
     "Country": "Togo",
     "City": "Lomé",
     "Type": "Newspaper",
-    "Inception": "2005"
+    "Inception": "2005",
+    "Coordinates": [6.131944, 1.222778]
   },
   {
     "Institute or newspaper name": "La Dépêche",
     "Country": "Togo",
     "City": "Lomé",
     "Type": "Newspaper",
-    "Inception": "1993"
+    "Inception": "1993",
+    "Coordinates": [6.131944, 1.222778]
   }
 ]'''
 
 # Load the data from JSON string
-data = pd.DataFrame(json.loads(data_json))
+data = pd.read_json(data_json)
 
 # Clean and prepare the data
 data['Inception'] = pd.to_datetime(data['Inception'], format='%Y', errors='coerce')
 
-# Add GPS coordinates to the dataset
-city_coordinates = {
-    'Abomey-Calavi': [6.448611, 2.355556],
-    'Cotonou': [6.366667, 2.416667],
-    'Porto-Novo': [6.483333, 2.616667],
-    'Lomé': [6.131944, 1.222778],
-    'Abidjan': [5.336389, -4.026667],
-    'Accra': [5.533333, -0.216667],
-    'Parakou': [9.3369, 2.6323]  # Added Parakou coordinates
-}
+# Safely extract latitude and longitude
+def extract_coordinate(coord, index):
+    if isinstance(coord, list) and len(coord) > index:
+        return coord[index]
+    return None
 
-data['Latitude'] = data['City'].map(lambda x: city_coordinates.get(x, [None])[0])
-data['Longitude'] = data['City'].map(lambda x: city_coordinates.get(x, [None])[1])
+data['Latitude'] = data['Coordinates'].apply(lambda x: extract_coordinate(x, 0))
+data['Longitude'] = data['Coordinates'].apply(lambda x: extract_coordinate(x, 1))
 
+# Prepare the JSON data for country colors
+country_counts = data['Country'].value_counts().to_dict()
+country_color_data = json.dumps(country_counts)
+
+# Add this after your data loading section
 app_ui = ui.page_sidebar(
     ui.sidebar(
         ui.input_select("filter_type", "Filter by Type", choices=["All"] + list(data['Type'].unique())),
@@ -290,39 +324,16 @@ def server(input, output, session):
         if input.filter_country() != "All":
             filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
         
-        # Count partners per country for choropleth
-        country_counts = filtered_data['Country'].value_counts().reset_index()
-        country_counts.columns = ['Country', 'Count']
+        fig = px.scatter_mapbox(filtered_data, 
+                                lat="Latitude", 
+                                lon="Longitude", 
+                                hover_name="Institute or newspaper name",
+                                color="Type",
+                                zoom=3,
+                                height=600)
         
-        # Create choropleth map
-        fig = px.choropleth(country_counts, 
-                            locations="Country", 
-                            color="Count",
-                            hover_name="Country", 
-                            color_continuous_scale=px.colors.sequential.Viridis,
-                            projection="natural earth")
-        
-        # Add point overlays for cities
-        fig.add_scattergeo(
-            lon=filtered_data['Longitude'],
-            lat=filtered_data['Latitude'],
-            text=filtered_data['Institute or newspaper name'],
-            mode='markers',
-            marker=dict(size=8, color='red', opacity=0.7),
-            hoverinfo='text'
-        )
-        
-        fig.update_geos(
-            visible=False,
-            resolution=50,
-            showcountries=True,
-            countrycolor="darkgray",
-            showcoastlines=True,
-            coastlinecolor="darkgray",
-            fitbounds="locations"
-        )
-        
-        fig.update_layout(height=600, margin={"r":0,"t":0,"l":0,"b":0})
+        fig.update_layout(mapbox_style="open-street-map")
+        fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
         
         return fig
 
@@ -363,3 +374,6 @@ def server(input, output, session):
         return fig
 
 app = App(app_ui, server)
+
+# Print the JSON data for country colors
+print(country_color_data)
