@@ -252,6 +252,20 @@ data = pd.DataFrame(json.loads(data_json))
 # Clean and prepare the data
 data['Inception'] = pd.to_datetime(data['Inception'], format='%Y', errors='coerce')
 
+# Add GPS coordinates to the dataset
+city_coordinates = {
+    'Abomey-Calavi': [6.448611, 2.355556],
+    'Cotonou': [6.366667, 2.416667],
+    'Porto-Novo': [6.483333, 2.616667],
+    'Lomé': [6.131944, 1.222778],
+    'Abidjan': [5.336389, -4.026667],
+    'Accra': [5.533333, -0.216667],
+    'Parakou': [9.3369, 2.6323]  # Added Parakou coordinates
+}
+
+data['Latitude'] = data['City'].map(lambda x: city_coordinates.get(x, [None])[0])
+data['Longitude'] = data['City'].map(lambda x: city_coordinates.get(x, [None])[1])
+
 app_ui = ui.page_sidebar(
     ui.sidebar(
         ui.input_select("filter_type", "Filter by Type", choices=["All"] + list(data['Type'].unique())),
@@ -276,11 +290,40 @@ def server(input, output, session):
         if input.filter_country() != "All":
             filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
         
-        fig = px.scatter_geo(filtered_data, 
-                             locations="Country", 
-                             color="Type", 
-                             hover_name="Institute or newspaper name",
-                             projection="natural earth")
+        # Count partners per country for choropleth
+        country_counts = filtered_data['Country'].value_counts().reset_index()
+        country_counts.columns = ['Country', 'Count']
+        
+        # Create choropleth map
+        fig = px.choropleth(country_counts, 
+                            locations="Country", 
+                            color="Count",
+                            hover_name="Country", 
+                            color_continuous_scale=px.colors.sequential.Viridis,
+                            projection="natural earth")
+        
+        # Add point overlays for cities
+        fig.add_scattergeo(
+            lon=filtered_data['Longitude'],
+            lat=filtered_data['Latitude'],
+            text=filtered_data['Institute or newspaper name'],
+            mode='markers',
+            marker=dict(size=8, color='red', opacity=0.7),
+            hoverinfo='text'
+        )
+        
+        fig.update_geos(
+            visible=False,
+            resolution=50,
+            showcountries=True,
+            countrycolor="darkgray",
+            showcoastlines=True,
+            coastlinecolor="darkgray",
+            fitbounds="locations"
+        )
+        
+        fig.update_layout(height=600, margin={"r":0,"t":0,"l":0,"b":0})
+        
         return fig
 
     @output
