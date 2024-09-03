@@ -70,6 +70,9 @@ def server(input, output, session):
         # Format Inception to show only the year
         display_data['Inception'] = display_data['Inception'].dt.strftime('%Y')
         
+        # Sort by 'Institute or newspaper name'
+        display_data = display_data.sort_values('Institute or newspaper name')
+        
         return render.DataGrid(display_data, filters=True, height="100%")
 
     @output
