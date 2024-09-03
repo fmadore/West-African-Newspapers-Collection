@@ -329,11 +329,19 @@ def server(input, output, session):
                                 lon="Longitude", 
                                 hover_name="Institute or newspaper name",
                                 color="Type",
-                                zoom=3,
+                                zoom=4,
                                 height=600)
         
-        fig.update_layout(mapbox_style="open-street-map")
-        fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+        fig.update_layout(
+            mapbox_style="open-street-map",
+            mapbox=dict(
+                center=dict(lat=filtered_data['Latitude'].mean(), lon=filtered_data['Longitude'].mean()),
+            ),
+            margin={"r":0,"t":0,"l":0,"b":0},
+            hoverlabel=dict(bgcolor="white", font_size=12),
+        )
+        
+        fig.update_traces(hovertemplate='%{hovertext}')
         
         return fig
 
