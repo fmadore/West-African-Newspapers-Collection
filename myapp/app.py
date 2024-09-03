@@ -159,6 +159,9 @@ def server(input, output, session):
         if input.filter_city() != "All":
             newspaper_data = newspaper_data[newspaper_data['City'] == input.filter_city()]
         
+        # Sort the data by Country and then by Inception date in descending order
+        newspaper_data = newspaper_data.sort_values(['Country', 'Inception'], ascending=[True, False])
+        
         # Create the timeline
         fig = px.timeline(newspaper_data, 
                           x_start="Inception", 
@@ -177,6 +180,9 @@ def server(input, output, session):
         
         # Update traces to show the newspaper name in the hover text
         fig.update_traces(hovertemplate='<b>%{y}</b><br>Inception: %{x}<br>Closure: %{x_end}<br>Country: %{customdata[0]}<br>City: %{customdata[1]}')
+        
+        # Reverse the y-axis to have the oldest newspapers at the top
+        fig.update_yaxes(autorange="reversed")
         
         return fig
 
