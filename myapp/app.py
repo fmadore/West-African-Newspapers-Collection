@@ -26,11 +26,16 @@ data['Longitude'] = data['Coordinates'].apply(lambda x: extract_coordinate(x, 1)
 country_counts = data['Country'].value_counts().to_dict()
 country_color_data = json.dumps(country_counts)
 
-# Add this after your data loading section
+# Prepare unique values for dropdowns
+unique_types = ["All"] + sorted(data['Type'].unique().tolist())
+unique_countries = ["All"] + sorted(data['Country'].unique().tolist())
+unique_cities = ["All"] + sorted(data['City'].unique().tolist())
+
 app_ui = ui.page_sidebar(
     ui.sidebar(
-        ui.input_select("filter_type", "Filter by Type", choices=["All"] + list(data['Type'].unique())),
-        ui.input_select("filter_country", "Filter by Country", choices=["All"] + list(data['Country'].unique())),
+        ui.input_select("filter_type", "Filter by Type", choices=unique_types),
+        ui.input_select("filter_country", "Filter by Country", choices=unique_countries),
+        ui.input_select("filter_city", "Filter by City", choices=unique_cities),
     ),
     ui.h1("WANA Partners Dashboard"),
     ui.navset_tab(
@@ -62,18 +67,14 @@ def server(input, output, session):
             filtered_data = filtered_data[filtered_data['Type'] == input.filter_type()]
         if input.filter_country() != "All":
             filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        if input.filter_city() != "All":
+            filtered_data = filtered_data[filtered_data['City'] == input.filter_city()]
         
-        # Remove coordinates, latitude, and longitude columns
         columns_to_display = ['Institute or newspaper name', 'Country', 'City', 'Type', 'Inception']
         display_data = filtered_data[columns_to_display].copy()
         
-        # Format Inception to show only the year
         display_data['Inception'] = display_data['Inception'].dt.strftime('%Y')
-        
-        # Rename 'Institute or newspaper name' to 'Name'
         display_data = display_data.rename(columns={'Institute or newspaper name': 'Name'})
-        
-        # Sort by 'Name'
         display_data = display_data.sort_values('Name')
         
         return render.DataGrid(display_data, filters=True, height="100%")
@@ -86,6 +87,8 @@ def server(input, output, session):
             filtered_data = filtered_data[filtered_data['Type'] == input.filter_type()]
         if input.filter_country() != "All":
             filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        if input.filter_city() != "All":
+            filtered_data = filtered_data[filtered_data['City'] == input.filter_city()]
         
         fig = px.scatter_mapbox(filtered_data, 
                                 lat="Latitude", 
@@ -121,6 +124,8 @@ def server(input, output, session):
         filtered_data = data
         if input.filter_country() != "All":
             filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        if input.filter_city() != "All":
+            filtered_data = filtered_data[filtered_data['City'] == input.filter_city()]
         
         type_country_counts = filtered_data.groupby(['Type', 'Country']).size().reset_index(name='Count')
         
