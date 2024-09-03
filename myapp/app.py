@@ -70,10 +70,11 @@ def server(input, output, session):
         if input.filter_city() != "All":
             filtered_data = filtered_data[filtered_data['City'] == input.filter_city()]
         
-        columns_to_display = ['Institute or newspaper name', 'Country', 'City', 'Type', 'Inception']
+        columns_to_display = ['Institute or newspaper name', 'Country', 'City', 'Type', 'Inception', 'Closure date']
         display_data = filtered_data[columns_to_display].copy()
         
         display_data['Inception'] = display_data['Inception'].dt.strftime('%Y')
+        display_data['Closure date'] = pd.to_datetime(display_data['Closure date'], errors='coerce').dt.strftime('%Y')
         display_data = display_data.rename(columns={'Institute or newspaper name': 'Name'})
         display_data = display_data.sort_values('Name')
         
