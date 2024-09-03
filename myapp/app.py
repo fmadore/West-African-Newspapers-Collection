@@ -51,8 +51,8 @@ app_ui = ui.page_sidebar(
             ui.h2("Partner Distribution"),
             output_widget("map")
         ),
-        ui.nav_panel("Timeline", 
-            ui.h2("Timeline"),
+        ui.nav_panel("Newspaper Timeline", 
+            ui.h2("Newspaper Timeline"),
             output_widget("timeline")
         ),
     )
@@ -143,17 +143,40 @@ def server(input, output, session):
     @output
     @render_widget
     def timeline():
-        filtered_data = data
-        if input.filter_type() != "All":
-            filtered_data = filtered_data[filtered_data['Type'] == input.filter_type()]
-        if input.filter_country() != "All":
-            filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        # Filter for newspapers only
+        newspaper_data = data[data['Type'] == 'Newspaper'].copy()
         
-        fig = px.timeline(filtered_data, 
+        # Convert Inception to datetime if it's not already
+        newspaper_data['Inception'] = pd.to_datetime(newspaper_data['Inception'], format='%Y', errors='coerce')
+        
+        # Add a 'Closure date' column, set to 2024 for all newspapers
+        newspaper_data['Closure date'] = pd.to_datetime('2024-01-01')
+        
+        # Apply filters
+        if input.filter_country() != "All":
+            newspaper_data = newspaper_data[newspaper_data['Country'] == input.filter_country()]
+        if input.filter_city() != "All":
+            newspaper_data = newspaper_data[newspaper_data['City'] == input.filter_city()]
+        
+        # Create the timeline
+        fig = px.timeline(newspaper_data, 
                           x_start="Inception", 
+                          x_end="Closure date",
                           y="Institute or newspaper name",
-                          color="Type",
+                          color="Country",
                           hover_data=["Country", "City"])
+        
+        # Customize the layout
+        fig.update_layout(
+            title="Newspaper Timeline",
+            xaxis_title="Year",
+            yaxis_title="Newspaper Name",
+            height=600
+        )
+        
+        # Update traces to show the newspaper name in the hover text
+        fig.update_traces(hovertemplate='<b>%{y}</b><br>Inception: %{x}<br>Country: %{customdata[0]}<br>City: %{customdata[1]}')
+        
         return fig
 
 app = App(app_ui, server)
