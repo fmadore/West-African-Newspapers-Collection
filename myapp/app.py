@@ -146,11 +146,12 @@ def server(input, output, session):
         # Filter for newspapers only
         newspaper_data = data[data['Type'] == 'Newspaper'].copy()
         
-        # Convert Inception to datetime if it's not already
+        # Convert Inception to datetime
         newspaper_data['Inception'] = pd.to_datetime(newspaper_data['Inception'], format='%Y', errors='coerce')
         
-        # Add a 'Closure date' column, set to 2024 for all newspapers
-        newspaper_data['Closure date'] = pd.to_datetime('2024-01-01')
+        # Handle Closure date
+        newspaper_data['Closure date'] = pd.to_datetime(newspaper_data['Closure date'], format='%Y', errors='coerce')
+        newspaper_data['Closure date'] = newspaper_data['Closure date'].fillna(pd.Timestamp('2024-01-01'))
         
         # Apply filters
         if input.filter_country() != "All":
@@ -175,7 +176,7 @@ def server(input, output, session):
         )
         
         # Update traces to show the newspaper name in the hover text
-        fig.update_traces(hovertemplate='<b>%{y}</b><br>Inception: %{x}<br>Country: %{customdata[0]}<br>City: %{customdata[1]}')
+        fig.update_traces(hovertemplate='<b>%{y}</b><br>Inception: %{x}<br>Closure: %{x_end}<br>Country: %{customdata[0]}<br>City: %{customdata[1]}')
         
         return fig
 
