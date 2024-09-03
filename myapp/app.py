@@ -307,13 +307,13 @@ app_ui = ui.page_sidebar(
     ),
     ui.h1("WANA Partners Dashboard"),
     ui.navset_tab(
+        ui.nav_panel("Type", 
+            ui.h2("Partners by Type and Country"),
+            output_widget("type_chart")
+        ),
         ui.nav_panel("Map", 
             ui.h2("Partner Distribution"),
             output_widget("map")
-        ),
-        ui.nav_panel("Type Chart", 
-            ui.h2("Partners by Type and Country"),
-            output_widget("type_chart")
         ),
         ui.nav_panel("Timeline", 
             ui.h2("Timeline"),
