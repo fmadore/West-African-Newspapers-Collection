@@ -262,8 +262,6 @@ app_ui = ui.page_sidebar(
     output_widget("map"),
     ui.h2("Partners by Type"),
     output_widget("type_chart"),
-    ui.h2("Partners by Country"),
-    output_widget("country_chart"),
     ui.h2("Timeline"),
     output_widget("timeline"),
 )
@@ -292,23 +290,17 @@ def server(input, output, session):
         if input.filter_country() != "All":
             filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
         
-        type_counts = filtered_data['Type'].value_counts().reset_index()
-        type_counts.columns = ['Type', 'Count']
+        type_country_counts = filtered_data.groupby(['Type', 'Country']).size().reset_index(name='Count')
         
-        fig = px.bar(type_counts, x='Type', y='Count', title='Partners by Type')
-        return fig
-
-    @output
-    @render_widget
-    def country_chart():
-        filtered_data = data
-        if input.filter_type() != "All":
-            filtered_data = filtered_data[filtered_data['Type'] == input.filter_type()]
+        fig = px.bar(type_country_counts, 
+                     x='Type', 
+                     y='Count', 
+                     color='Country', 
+                     title='Partners by Type and Country',
+                     labels={'Count': 'Number of Partners'},
+                     hover_data=['Country', 'Count'])
         
-        country_counts = filtered_data['Country'].value_counts().reset_index()
-        country_counts.columns = ['Country', 'Count']
-        
-        fig = px.bar(country_counts, x='Country', y='Count', title='Partners by Country')
+        fig.update_layout(barmode='stack')
         return fig
 
     @output
