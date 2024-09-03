@@ -7,7 +7,7 @@ from pathlib import Path
 
 # Load data from JSON file
 data_path = Path(__file__).parent / "data.json"
-with open(data_path, "r") as file:
+with open(data_path, "r", encoding="utf-8") as file:
     data = pd.read_json(file)
 
 # Clean and prepare the data
