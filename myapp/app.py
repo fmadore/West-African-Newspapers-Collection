@@ -110,17 +110,24 @@ def server(input, output, session):
                             range_color=(0, country_counts['Count'].max()),
                             labels={'Count':'Number of Partners'},
                             hover_name='Country',
-                            hover_data=['Count'],
+                            hover_data={'Count': True, 'Country': False},
                             featureidkey="properties.NAME")
 
         fig.update_geos(showcountries=True, countrycolor="Black", countrywidth=0.5,
                         showcoastlines=True, coastlinecolor="Black", coastlinewidth=0.5)
 
+        # Calculate the center of the data points
+        center_lat = filtered_data['Latitude'].mean()
+        center_lon = filtered_data['Longitude'].mean()
+
         fig.update_layout(
             title_text='Partner Distribution by Country',
             geo=dict(
                 showframe=False,
-                projection_type='natural earth'
+                projection_type='natural earth',
+                center=dict(lat=center_lat, lon=center_lon),
+                # Adjust the zoom level as needed
+                projection_scale=2
             ),
             height=600,
             margin={"r":0,"t":40,"l":0,"b":0}
@@ -131,7 +138,6 @@ def server(input, output, session):
                                       lat='Latitude',
                                       lon='Longitude',
                                       hover_name='Institute or newspaper name',
-                                      hover_data=['Type', 'City'],
                                       color='Type')
 
         for trace in scatter_data.data:
@@ -146,6 +152,16 @@ def server(input, output, session):
                 x=0.01,
                 bgcolor="rgba(255, 255, 255, 0.5)"
             )
+        )
+
+        # Simplify hover information for both choropleth and scatter plots
+        fig.update_traces(
+            hovertemplate='%{hovertext}<br>Count: %{z}',
+            selector=dict(type='choropleth')
+        )
+        fig.update_traces(
+            hovertemplate='%{hovertext}',
+            selector=dict(type='scattergeo')
         )
 
         return fig
