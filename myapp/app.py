@@ -307,6 +307,10 @@ app_ui = ui.page_sidebar(
     ),
     ui.h1("WANA Partners Dashboard"),
     ui.navset_tab(
+        ui.nav_panel("Overview", 
+            ui.h2("Data Overview"),
+            ui.output_data_frame("data_table")
+        ),
         ui.nav_panel("Type", 
             ui.h2("Partners by Type and Country"),
             output_widget("type_chart")
@@ -323,6 +327,17 @@ app_ui = ui.page_sidebar(
 )
 
 def server(input, output, session):
+    @output
+    @render.data_frame
+    def data_table():
+        filtered_data = data
+        if input.filter_type() != "All":
+            filtered_data = filtered_data[filtered_data['Type'] == input.filter_type()]
+        if input.filter_country() != "All":
+            filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        
+        return render.DataGrid(filtered_data, filters=True, height="100%")
+
     @output
     @render_widget
     def map():
