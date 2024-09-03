@@ -247,25 +247,25 @@ data_json = '''[
 ]'''
 
 # Load the data from JSON string
-data = pd.read_json(data_json)
+data = pd.DataFrame(json.loads(data_json))
 
 # Clean and prepare the data
 data['Inception'] = pd.to_datetime(data['Inception'], format='%Y', errors='coerce')
 
-app_ui = ui.page_fluid(
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.input_select("filter_type", "Filter by Type", choices=["All"] + list(data['Type'].unique())),
+        ui.input_select("filter_country", "Filter by Country", choices=["All"] + list(data['Country'].unique())),
+    ),
     ui.h1("WANA Partners Dashboard"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_select("filter_type", "Filter by Type", choices=["All"] + list(data['Type'].unique())),
-            ui.input_select("filter_country", "Filter by Country", choices=["All"] + list(data['Country'].unique())),
-        ),
-        ui.panel_main(
-            ui.h2("Partner Distribution"),
-            output_widget("map"),
-            ui.h2("Timeline"),
-            output_widget("timeline"),
-        )
-    )
+    ui.h2("Partner Distribution"),
+    output_widget("map"),
+    ui.h2("Partners by Type"),
+    output_widget("type_chart"),
+    ui.h2("Partners by Country"),
+    output_widget("country_chart"),
+    ui.h2("Timeline"),
+    output_widget("timeline"),
 )
 
 def server(input, output, session):
@@ -283,6 +283,32 @@ def server(input, output, session):
                              color="Type", 
                              hover_name="Institute or newspaper name",
                              projection="natural earth")
+        return fig
+
+    @output
+    @render_widget
+    def type_chart():
+        filtered_data = data
+        if input.filter_country() != "All":
+            filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        
+        type_counts = filtered_data['Type'].value_counts().reset_index()
+        type_counts.columns = ['Type', 'Count']
+        
+        fig = px.bar(type_counts, x='Type', y='Count', title='Partners by Type')
+        return fig
+
+    @output
+    @render_widget
+    def country_chart():
+        filtered_data = data
+        if input.filter_type() != "All":
+            filtered_data = filtered_data[filtered_data['Type'] == input.filter_type()]
+        
+        country_counts = filtered_data['Country'].value_counts().reset_index()
+        country_counts.columns = ['Country', 'Count']
+        
+        fig = px.bar(country_counts, x='Country', y='Count', title='Partners by Country')
         return fig
 
     @output
