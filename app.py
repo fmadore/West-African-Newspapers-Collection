@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 from shiny import App, ui, render
 from shinywidgets import output_widget, render_widget
 
@@ -302,62 +303,76 @@ country_color_data = json.dumps(country_counts)
 # Add this after your data loading section
 app_ui = ui.page_sidebar(
     ui.sidebar(
-        ui.input_select("filter_type", "Filter by Type", choices=["All"] + list(data['Type'].unique())),
-        ui.input_select("filter_country", "Filter by Country", choices=["All"] + list(data['Country'].unique())),
+        ui.input_select("filter_type", "Filter by Type", 
+                        choices=["All"] + list(data['Type'].unique())),
+        ui.input_select("filter_country", "Filter by Country", 
+                        choices=["All"] + list(data['Country'].unique()))
     ),
     ui.h1("WANA Partners Dashboard"),
-    ui.h2("Partners by Type and Country"),
-    output_widget("type_chart"),
-    ui.h2("Partner Distribution"),
-    output_widget("map"),
-    ui.h2("Timeline"),
-    output_widget("timeline"),
+    ui.navset_tab(
+        ui.nav_panel("Partners by Type and Country",
+            ui.h2("Partners by Type and Country"),
+            output_widget("type_chart")
+        ),
+        ui.nav_panel("Partner Distribution",
+            ui.h2("Partner Distribution"),
+            output_widget("map")
+        ),
+        ui.nav_panel("Timeline",
+            ui.h2("Timeline"),
+            output_widget("timeline")
+        )
+    )
 )
 
 def server(input, output, session):
     @output
     @render_widget
     def map():
-        filtered_data = data
-        if input.filter_type() != "All":
-            filtered_data = filtered_data[filtered_data['Type'] == input.filter_type()]
-        if input.filter_country() != "All":
-            filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        filtered_data = filter_data(input.filter_type(), input.filter_country())
         
-        fig = px.scatter_mapbox(filtered_data, 
-                                lat="Latitude", 
-                                lon="Longitude", 
-                                hover_name="Institute or newspaper name",
-                                color="Type",
-                                zoom=4,
-                                height=600)
+        # Count partners per country for choropleth
+        country_counts = filtered_data['Country'].value_counts().reset_index()
+        country_counts.columns = ['Country', 'Count']
         
-        fig.update_layout(
-            mapbox_style="open-street-map",
-            mapbox=dict(
-                center=dict(lat=filtered_data['Latitude'].mean(), lon=filtered_data['Longitude'].mean()),
-            ),
-            margin={"r":0,"t":0,"l":0,"b":0},
-            hoverlabel=dict(bgcolor="white", font_size=12),
-            legend=dict(
-                yanchor="top",
-                y=0.99,
-                xanchor="left",
-                x=0.01,
-                bgcolor="rgba(255, 255, 255, 0.5)"
-            )
+        # Create choropleth layer
+        fig = px.choropleth(country_counts,
+                            locations="Country",
+                            color="Count",
+                            hover_name="Country",
+                            color_continuous_scale="Viridis",
+                            projection="natural earth")
+        
+        # Add scatter layer for individual partners
+        fig.add_scattergeo(
+            lon=filtered_data['Longitude'],
+            lat=filtered_data['Latitude'],
+            text=filtered_data['Institute or newspaper name'],
+            mode='markers',
+            marker=dict(size=8, color='red', opacity=0.7),
+            hoverinfo='text'
         )
         
-        fig.update_traces(hovertemplate='%{hovertext}')
+        fig.update_geos(
+            showcoastlines=True, coastlinecolor="Black",
+            showland=True, landcolor="white",
+            showocean=True, oceancolor="white",
+            showlakes=True, lakecolor="white",
+            fitbounds="locations"
+        )
+        
+        fig.update_layout(
+            height=600,
+            margin={"r":0,"t":0,"l":0,"b":0},
+            coloraxis_colorbar=dict(title="Number of Partners")
+        )
         
         return fig
 
     @output
     @render_widget
     def type_chart():
-        filtered_data = data
-        if input.filter_country() != "All":
-            filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        filtered_data = filter_data(input.filter_type(), input.filter_country())
         
         type_country_counts = filtered_data.groupby(['Type', 'Country']).size().reset_index(name='Count')
         
@@ -375,11 +390,7 @@ def server(input, output, session):
     @output
     @render_widget
     def timeline():
-        filtered_data = data
-        if input.filter_type() != "All":
-            filtered_data = filtered_data[filtered_data['Type'] == input.filter_type()]
-        if input.filter_country() != "All":
-            filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
+        filtered_data = filter_data(input.filter_type(), input.filter_country())
         
         fig = px.timeline(filtered_data, 
                           x_start="Inception", 
@@ -387,6 +398,14 @@ def server(input, output, session):
                           color="Type",
                           hover_data=["Country", "City"])
         return fig
+
+    def filter_data(type_filter, country_filter):
+        filtered_data = data
+        if type_filter != "All":
+            filtered_data = filtered_data[filtered_data['Type'] == type_filter]
+        if country_filter != "All":
+            filtered_data = filtered_data[filtered_data['Country'] == country_filter]
+        return filtered_data
 
 app = App(app_ui, server)
 
