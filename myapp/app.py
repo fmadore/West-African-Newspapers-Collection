@@ -194,12 +194,12 @@ def server(input, output, session):
         # Filter for newspapers only
         newspaper_data = data[data['Type'] == 'Newspaper'].copy()
         
-        # Convert Inception to datetime
-        newspaper_data['Inception'] = pd.to_datetime(newspaper_data['Inception'], format='%Y', errors='coerce')
+        # Convert Inception to year string
+        newspaper_data['Inception'] = pd.to_datetime(newspaper_data['Inception'], format='%Y', errors='coerce').dt.strftime('%Y')
         
-        # Handle Closure date
-        newspaper_data['Closure date'] = pd.to_datetime(newspaper_data['Closure date'], format='%Y', errors='coerce')
-        newspaper_data['Closure date'] = newspaper_data['Closure date'].fillna(pd.Timestamp('2024-01-01'))
+        # Handle Closure date, convert to year string
+        newspaper_data['Closure date'] = pd.to_datetime(newspaper_data['Closure date'], format='%Y', errors='coerce').dt.strftime('%Y')
+        newspaper_data['Closure date'] = newspaper_data['Closure date'].fillna('2024')
         
         # Apply filters
         if input.filter_country() != "All":
