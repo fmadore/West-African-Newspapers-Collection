@@ -1,0 +1,12 @@
+{
+    "https://api.shinyapps.io": {
+        "server_url": "https://api.shinyapps.io",
+        "filename": "C:\\Users\\Fr\u00e9d\u00e9rick\\GitHub\\West-African-Newspapers-Collection\\myapp",
+        "app_url": "https://fmadore.shinyapps.io/wana_partners_dashboard1/",
+        "app_id": 12625861,
+        "app_guid": null,
+        "title": "WANA Partners Dashboard",
+        "app_mode": "python-shiny",
+        "app_store_version": 1
+    }
+}
