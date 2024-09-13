@@ -14,8 +14,8 @@
       "City": "Abomey-Calavi",
       "Type": "Newspaper",
       "Inception": "1988",
-      "Classification": null,
       "Closure date": null,
+      "Classification": "Not digitized",
       "Coordinates": [6.412947, 2.342869]
     },
     {
@@ -33,7 +33,7 @@
       "City": "Cotonou",
       "Type": "Newspaper",
       "Inception": "1999",
-      "Classification": null,
+      "Classification": "Not digitized",
       "Closure date": null,
       "Coordinates": [6.388017, 2.367524]
     },
@@ -43,7 +43,7 @@
       "City": "Cotonou",
       "Type": "Newspaper",
       "Inception": "2014",
-      "Classification": null,
+      "Classification": "Not digitized",
       "Closure date": null,
       "Coordinates": [6.3711, 2.422464]
     },
@@ -63,7 +63,7 @@
       "City": "Cotonou",
       "Type": "Newspaper",
       "Inception": "1997",
-      "Classification": null,
+      "Classification": "Not digitized",
       "Closure date": null,
       "Coordinates": [6.370149, 2.48385]
     },
@@ -140,7 +140,7 @@
       "Type": "Newspaper",
       "Inception": "2003",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [5.356952, -3.977041]
     },
     {
@@ -159,7 +159,7 @@
       "Type": "Newspaper",
       "Inception": "2003",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [5.376238, -3.996232]
     },
     {
@@ -169,7 +169,7 @@
         "Type": "Newspaper",
         "Inception": "1994",
         "Closure date": "2003",
-        "Classification": null,
+        "Classification": "Not digitized",
         "Coordinates": [5.376238, -3.996232]
       },
     {
@@ -179,7 +179,7 @@
       "Type": "Newspaper",
       "Inception": "1991",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [5.279551, -3.978055]
     },
     {
@@ -189,7 +189,7 @@
       "Type": "Newspaper",
       "Inception": "1998",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Partially/fully digitised",
       "Coordinates": [5.298293, -3.982263]
     },
     {
@@ -199,7 +199,7 @@
       "Type": "Newspaper",
       "Inception": "1994",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Partially/fully digitised",
       "Coordinates": [5.298293, -3.982263]
     },
     {
@@ -209,7 +209,7 @@
       "Type": "Newspaper",
       "Inception": "1997",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [5.362541, -3.959885]
     },
     {
@@ -219,7 +219,7 @@
         "Type": "Newspaper",
         "Inception": "1991",
         "Closure date": "1997",
-        "Classification": null,
+        "Classification": "Not digitized",
         "Coordinates": [5.362541, -3.959885]
       },
       {
@@ -229,7 +229,7 @@
         "Type": "Newspaper",
         "Inception": "1990",
         "Closure date": null,
-        "Classification": null,
+        "Classification": "Not digitized",
         "Coordinates": [5.362541, -3.959885]
       },
     {
@@ -317,7 +317,7 @@
       "Type": "Newspaper",
       "Inception": "1984",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [5.575921, -0.201627]
     },
     {
@@ -327,7 +327,7 @@
       "Type": "Newspaper",
       "Inception": "1957",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [5.569508, -0.221906]
     },
     {
@@ -337,7 +337,7 @@
       "Type": "Newspaper",
       "Inception": "2006",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [5.577693, -0.208109]
     },
     {
@@ -374,7 +374,7 @@
       "Type": "Newspaper",
       "Inception": "2008",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [6.131944, 1.222778]
     },
     {
@@ -384,7 +384,7 @@
       "Type": "Newspaper",
       "Inception": "2005",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [6.18998, 1.15607]
     },
     {
@@ -394,7 +394,7 @@
       "Type": "Newspaper",
       "Inception": "1993",
       "Closure date": null,
-      "Classification": null,
+      "Classification": "Not digitized",
       "Coordinates": [6.158767, 1.212996]
     }
   ]
