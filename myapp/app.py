@@ -230,7 +230,7 @@ def server(input, output, session):
         fig.update_layout(
             xaxis_title="Years of Publication",
             yaxis_title="Newspaper Name",
-            height=600,
+            height=1000,  # Increased height
             legend_title="Country"
         )
         
