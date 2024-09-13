@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objs as go
 from shiny import App, ui, render
 from shinywidgets import output_widget, render_widget
 from pathlib import Path
@@ -33,6 +34,10 @@ unique_types = ["All"] + sorted(data['Type'].unique().tolist())
 unique_countries = ["All"] + sorted(data['Country'].unique().tolist())
 unique_cities = ["All"] + sorted(data['City'].unique().tolist())
 
+# Handle None values in Classification
+data['Classification'] = data['Classification'].fillna('Unclassified')
+unique_classifications = ["All"] + sorted(data['Classification'].unique().tolist())
+
 # Load world map data
 world = gpd.read_file(shpreader.natural_earth(resolution='110m', category='cultural', name='admin_0_countries'))
 world = world.to_crs(epsg=4326)
@@ -43,6 +48,7 @@ app_ui = ui.page_sidebar(
         ui.input_select("filter_type", "Filter by Type", choices=unique_types),
         ui.input_select("filter_country", "Filter by Country", choices=unique_countries),
         ui.input_select("filter_city", "Filter by City", choices=unique_cities),
+        ui.input_select("filter_classification", "Filter by Classification", choices=unique_classifications),
     ),
     ui.h1("WANA Partners Dashboard"),
     ui.navset_tab(
@@ -76,8 +82,10 @@ def server(input, output, session):
             filtered_data = filtered_data[filtered_data['Country'] == input.filter_country()]
         if input.filter_city() != "All":
             filtered_data = filtered_data[filtered_data['City'] == input.filter_city()]
+        if input.filter_classification() != "All":
+            filtered_data = filtered_data[filtered_data['Classification'] == input.filter_classification()]
         
-        columns_to_display = ['Institute or newspaper name', 'Country', 'City', 'Type', 'Inception', 'Closure date']
+        columns_to_display = ['Institute or newspaper name', 'Country', 'City', 'Type', 'Classification', 'Inception', 'Closure date']
         display_data = filtered_data[columns_to_display].copy()
         
         display_data['Inception'] = display_data['Inception'].dt.strftime('%Y')
@@ -216,18 +224,58 @@ def server(input, output, session):
                           x_end="Closure date",
                           y="Institute or newspaper name",
                           color="Country",
-                          hover_data=["Country", "City"])
+                          hover_data=["Country", "City", "Classification"])
         
         # Customize the layout
         fig.update_layout(
             title="Newspaper Timeline",
             xaxis_title="Year",
             yaxis_title="Newspaper Name",
-            height=600
+            height=600,
+            legend_title="Country"
         )
         
-        # Update traces to show the newspaper name in the hover text
-        fig.update_traces(hovertemplate='<b>%{y}</b><br>Inception: %{x}<br>Closure: %{x_end}<br>Country: %{customdata[0]}<br>City: %{customdata[1]}')
+        # Update traces to show the newspaper name in the hover text and set pattern for digitized newspapers
+        for i, trace in enumerate(fig.data):
+            country_data = newspaper_data[newspaper_data['Country'] == trace.name]
+            trace.marker.pattern = {
+                "shape": [
+                    "/" if classification == 'Partially/fully digitised' else ""
+                    for classification in country_data['Classification']
+                ],
+                "size": 4,
+                "solidity": 0.9,
+            }
+            trace.hovertemplate = '<b>%{y}</b><br>Inception: %{x}<br>Closure: %{customdata[3]}<br>Country: %{customdata[0]}<br>City: %{customdata[1]}<br>Classification: %{customdata[2]}'
+        
+        # Add a spacer trace to create separation between Country and Status sections
+        fig.add_trace(go.Bar(
+            x=[None], y=[None],
+            marker_color='rgba(0,0,0,0)',
+            name='',
+            showlegend=True,
+            legendgroup='spacer',
+            hoverinfo='none'
+        ))
+
+        # Add a legend for Classification using Bar traces
+        fig.add_trace(go.Bar(
+            x=[None], y=[None],
+            marker_color='rgba(0,0,0,0)',
+            name='Not digitized',
+            legendgroup='classification',
+            legendgrouptitle_text="Status",
+            showlegend=True
+        ))
+        fig.add_trace(go.Bar(
+            x=[None], y=[None],
+            marker_color='rgba(0,0,0,0)',
+            marker_pattern_shape="/",
+            name='Partially/fully digitised',
+            legendgroup='classification',
+            legendgrouptitle_text="Status",
+            showlegend=True
+        ))
         
         # Reverse the y-axis to have the oldest newspapers at the top
         fig.update_yaxes(autorange="reversed")
