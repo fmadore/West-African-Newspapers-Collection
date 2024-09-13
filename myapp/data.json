@@ -5,6 +5,7 @@
       "City": "Porto-Novo",
       "Type": "Archives",
       "Inception": "1975",
+      "Classification": null,
       "Coordinates": [6.5118, 2.6061]
     },
     {
@@ -13,6 +14,7 @@
       "City": "Abomey-Calavi",
       "Type": "Newspaper",
       "Inception": "1988",
+      "Classification": null,
       "Closure date": null,
       "Coordinates": [6.412947, 2.342869]
     },
@@ -22,6 +24,7 @@
       "City": "Porto-Novo",
       "Type": "Archives",
       "Inception": "1914",
+      "Classification": null,
       "Coordinates": [6.511933, 2.606324]
     },
     {
@@ -30,6 +33,7 @@
       "City": "Cotonou",
       "Type": "Newspaper",
       "Inception": "1999",
+      "Classification": null,
       "Closure date": null,
       "Coordinates": [6.388017, 2.367524]
     },
@@ -39,6 +43,7 @@
       "City": "Cotonou",
       "Type": "Newspaper",
       "Inception": "2014",
+      "Classification": null,
       "Closure date": null,
       "Coordinates": [6.3711, 2.422464]
     },
@@ -49,6 +54,7 @@
       "Type": "Newspaper",
       "Inception": "1946",
       "Closure date": null,
+      "Classification": "Partially/fully digitised",
       "Coordinates": [6.367897, 2.427973]
     },
     {
@@ -57,6 +63,7 @@
       "City": "Cotonou",
       "Type": "Newspaper",
       "Inception": "1997",
+      "Classification": null,
       "Closure date": null,
       "Coordinates": [6.370149, 2.48385]
     },
@@ -66,6 +73,7 @@
       "City": "Abomey-Calavi",
       "Type": "Education",
       "Inception": "2019",
+      "Classification": null,
       "Coordinates": [6.41677, 2.325773]
     },
     {
@@ -75,6 +83,7 @@
       "Type": "Newspaper",
       "Inception": "1990",
       "Closure date": null,
+      "Classification": "Partially/fully digitised",
       "Coordinates": [6.357045, 2.401843]
     },
     {
@@ -84,6 +93,7 @@
         "Type": "Newspaper",
         "Inception": "1975",
         "Closure date": "1990",
+        "Classification": "Partially/fully digitised",
         "Coordinates": [6.357045, 2.401843]
       },
       {
@@ -92,6 +102,7 @@
         "City": "Cotonou",
         "Type": "Newspaper",
         "Inception": "1969",
+        "Classification": "Partially/fully digitised",
         "Closure date": "1975",
         "Coordinates": [6.357045, 2.401843]
       },
@@ -101,6 +112,7 @@
       "City": "Parakou",
       "Type": "Education",
       "Inception": null,
+      "Classification": null,
       "Coordinates": [9.341821, 2.592845]
     },
     {
@@ -109,6 +121,7 @@
       "City": "Abidjan",
       "Type": "Organisation",
       "Inception": null,
+      "Classification": null,
       "Coordinates": [5.391243, -3.986900]
     },
     {
@@ -117,6 +130,7 @@
       "City": "Abidjan",
       "Type": "Archives",
       "Inception": "1976",
+      "Classification": null,
       "Coordinates": [5.320437, -4.021263]
     },
     {
@@ -126,6 +140,7 @@
       "Type": "Newspaper",
       "Inception": "2003",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.356952, -3.977041]
     },
     {
@@ -134,6 +149,7 @@
       "City": "Abidjan",
       "Type": "Library",
       "Inception": "1962",
+      "Classification": null,
       "Coordinates": [5.33969, -4.0006]
     },
     {
@@ -143,6 +159,7 @@
       "Type": "Newspaper",
       "Inception": "2003",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.376238, -3.996232]
     },
     {
@@ -152,6 +169,7 @@
         "Type": "Newspaper",
         "Inception": "1994",
         "Closure date": "2003",
+        "Classification": null,
         "Coordinates": [5.376238, -3.996232]
       },
     {
@@ -161,6 +179,7 @@
       "Type": "Newspaper",
       "Inception": "1991",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.279551, -3.978055]
     },
     {
@@ -170,6 +189,7 @@
       "Type": "Newspaper",
       "Inception": "1998",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.298293, -3.982263]
     },
     {
@@ -179,6 +199,7 @@
       "Type": "Newspaper",
       "Inception": "1994",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.298293, -3.982263]
     },
     {
@@ -188,6 +209,7 @@
       "Type": "Newspaper",
       "Inception": "1997",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.362541, -3.959885]
     },
     {
@@ -197,6 +219,7 @@
         "Type": "Newspaper",
         "Inception": "1991",
         "Closure date": "1997",
+        "Classification": null,
         "Coordinates": [5.362541, -3.959885]
       },
       {
@@ -206,6 +229,7 @@
         "Type": "Newspaper",
         "Inception": "1990",
         "Closure date": null,
+        "Classification": null,
         "Coordinates": [5.362541, -3.959885]
       },
     {
@@ -215,6 +239,7 @@
       "Type": "Newspaper",
       "Inception": "1964",
       "Closure date": null,
+      "Classification": "Partially/fully digitised",
       "Coordinates": [5.344436, -4.018549]
     },
     {
@@ -224,6 +249,7 @@
         "Type": "Newspaper",
         "Inception": "1969",
         "Closure date": null,
+        "Classification": "Partially/fully digitised",
         "Coordinates": [5.344436, -4.018549]
       },
       {
@@ -233,6 +259,7 @@
         "Type": "Newspaper",
         "Inception": "1971",
         "Closure date": "1990",
+        "Classification": "Partially/fully digitised",
         "Coordinates": [5.344436, -4.018549]
       },  
     {
@@ -241,6 +268,7 @@
       "City": "Abidjan",
       "Type": "Organisation",
       "Inception": null,
+      "Classification": null,
       "Coordinates": [5.346763, -4.017048]
     },
     {
@@ -249,6 +277,7 @@
       "City": "Accra",
       "Type": "Library",
       "Inception": "1948",
+      "Classification": null,
       "Coordinates": [5.65197, -0.187028]
     },
     {
@@ -258,6 +287,7 @@
       "Type": "Newspaper",
       "Inception": "1950",
       "Closure date": null,
+      "Classification": "Partially/fully digitised",
       "Coordinates": [5.554803, -0.217079]
     },
     {
@@ -267,6 +297,7 @@
       "Type": "Newspaper",
       "Inception": "1953",
       "Closure date": null,
+      "Classification": "Partially/fully digitised",
       "Coordinates": [5.554803, -0.217079]
     },
     {
@@ -276,6 +307,7 @@
       "Type": "Newspaper",
       "Inception": "1969",
       "Closure date": null,
+      "Classification": "Partially/fully digitised",
       "Coordinates": [5.554803, -0.217079]
     },
     {
@@ -285,6 +317,7 @@
       "Type": "Newspaper",
       "Inception": "1984",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.575921, -0.201627]
     },
     {
@@ -294,6 +327,7 @@
       "Type": "Newspaper",
       "Inception": "1957",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.569508, -0.221906]
     },
     {
@@ -303,6 +337,7 @@
       "Type": "Newspaper",
       "Inception": "2006",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [5.577693, -0.208109]
     },
     {
@@ -311,6 +346,7 @@
       "City": "Accra",
       "Type": "Archives",
       "Inception": "1950",
+      "Classification": null,
       "Coordinates": [5.5447, -0.2058]
     },
     {
@@ -319,6 +355,7 @@
       "City": "Lomé",
       "Type": "Archives",
       "Inception": "1969",
+      "Classification": null,
       "Coordinates": [6.129117, 1.218427]
     },
     {
@@ -327,6 +364,7 @@
       "City": "Lomé",
       "Type": "Education",
       "Inception": "1970",
+      "Classification": null,
       "Coordinates": [6.173669, 1.215866]
     },
     {
@@ -336,6 +374,7 @@
       "Type": "Newspaper",
       "Inception": "2008",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [6.131944, 1.222778]
     },
     {
@@ -345,6 +384,7 @@
       "Type": "Newspaper",
       "Inception": "2005",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [6.18998, 1.15607]
     },
     {
@@ -354,6 +394,7 @@
       "Type": "Newspaper",
       "Inception": "1993",
       "Closure date": null,
+      "Classification": null,
       "Coordinates": [6.158767, 1.212996]
     }
   ]
