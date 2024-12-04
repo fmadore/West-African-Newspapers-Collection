@@ -33,7 +33,7 @@ numpy==2.1.1
 packaging==24.1
 pandas==2.2.2
 parso==0.8.4
-pillow==10.4.0
+pillow>=10.2.0
 platformdirs==4.2.2
 plotly==5.24.0
 prompt-toolkit==3.0.36
